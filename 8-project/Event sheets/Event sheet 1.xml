@@ -2,5 +2,258 @@
 <c2eventsheet>
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>Event sheet 1</name>
-    <events />
+    <events>
+        <event-block sid="8219656907014757">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="3970765382770815" type="LePotato">
+                    <param id="0" name="Object">Sprite17</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="3352836232153059" type="Sprite17" />
+                <action id="-7" name="Set size" sid="446735446922598" type="LePotato">
+                    <param id="0" name="Width">LePotato.Width * 1.1</param>
+                    <param id="1" name="Height">LePotato.Height * 1.1</param>
+                </action>
+                <action id="-11" name="Add to" sid="5011682787661161" type="LePotato">
+                    <param id="0" name="Instance variable">Score</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="214193016698373">
+            <conditions>
+                <condition id="-1" name="Every tick" sid="2211841635773934" type="System" />
+            </conditions>
+            <actions>
+                <action id="0" name="Set text" sid="8685454298775466" type="Text">
+                    <param id="0" name="Text">&quot;SCORE &quot; &amp; str(LePotato.Score)</param>
+                </action>
+                <action id="0" name="Set text" sid="535981439324585" type="Text2">
+                    <param id="0" name="Text">&quot;HP &quot; &amp; str(LePotato.HP)</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="2826709690225718">
+            <conditions>
+                <condition behavior="Platform" id="6" name="On fall" sid="6024257639585822" type="LePotato" />
+            </conditions>
+            <actions>
+                <action id="4" name="Set animation" sid="8312811348596091" type="LePotato">
+                    <param id="0" name="Animation">&quot;Fall&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="7912750244015967">
+            <conditions>
+                <condition behavior="Platform" id="7" name="On stopped" sid="5729115642051223" type="LePotato" />
+            </conditions>
+            <actions>
+                <action id="4" name="Set animation" sid="1294422902068051" type="LePotato">
+                    <param id="0" name="Animation">&quot;Static&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="1925230942420858">
+            <conditions>
+                <condition behavior="Platform" id="9" name="On landed" sid="3495086010494098" type="LePotato" />
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="6349452147994868">
+                    <conditions>
+                        <condition behavior="Platform" id="0" name="Is moving" sid="4101427788172173" type="LePotato" />
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="4902638551212772" type="LePotato">
+                            <param id="0" name="Animation">&quot;Walk&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="9504462689303213">
+                    <conditions>
+                        <condition behavior="Platform" id="0" inverted="1" name="Is moving" sid="357022287502812" type="LePotato" />
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="8512765568336063" type="LePotato">
+                            <param id="0" name="Animation">&quot;Static&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="3691634166128128">
+            <conditions>
+                <condition behavior="Platform" id="8" name="On moved" sid="2394588943266313" type="LePotato" />
+            </conditions>
+            <actions>
+                <action id="4" name="Set animation" sid="6833492194868893" type="LePotato">
+                    <param id="0" name="Animation">&quot;Walk&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="7638379430396352">
+            <conditions>
+                <condition id="-1" name="Every tick" sid="4382210898812925" type="System" />
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="3116874006334285">
+                    <conditions>
+                        <condition id="-11" name="For Each" sid="6844366957209359" type="System">
+                            <param id="0" name="Object">LePotato</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="5007401920676115">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="4194717733033923" type="System">
+                                    <param id="0" name="First value">LePotato.HP</param>
+                                    <param id="1" name="Comparison">3</param>
+                                    <param id="2" name="Second value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Destroy" sid="4265467755248516" type="LePotato" />
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="9343166537800275">
+                    <conditions>
+                        <condition behavior="LineOfSight" id="0" name="Has LOS to object" sid="6152901070653267" type="Blinman">
+                            <param id="0" name="Object">LePotato</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="9254337536629837" type="Blinman">
+                            <param id="0" name="Animation">&quot;Walk&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="5750777701150202">
+                            <conditions>
+                                <condition id="-21" name="Is between values" sid="4124153316613078" type="System">
+                                    <param id="0" name="Value">Angle(Blinman.X, Blinman.Y, LePotato.X, LePotato.Y)</param>
+                                    <param id="1" name="Lower bound">-90</param>
+                                    <param id="2" name="Upper bound">90</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Platform" id="7" name="Simulate control" sid="7380227657311395" type="Blinman">
+                                    <param id="0" name="Control">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="3275007360880526">
+                            <conditions>
+                                <condition id="-21" inverted="1" name="Is between values" sid="7196219611620753" type="System">
+                                    <param id="0" name="Value">angle(Blinman.X, Blinman.Y, LePotato.X, LePotato.Y)</param>
+                                    <param id="1" name="Lower bound">-90</param>
+                                    <param id="2" name="Upper bound">90</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Platform" id="7" name="Simulate control" sid="6333087429889863" type="Blinman">
+                                    <param id="0" name="Control">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="3374292919772106">
+                    <conditions>
+                        <condition id="-11" name="For Each" sid="6819607443745377" type="System">
+                            <param id="0" name="Object">Blinman</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="2499563939674057">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="8593556242633009" type="System">
+                                    <param id="0" name="First value">Blinman.HP</param>
+                                    <param id="1" name="Comparison">3</param>
+                                    <param id="2" name="Second value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Destroy" sid="6709488546797506" type="Blinman" />
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="6340776607641198">
+            <conditions>
+                <condition id="-6" name="Every X seconds" sid="2363485598647505" type="System">
+                    <param id="0" name="Interval (seconds)">2.0</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="5646407889140945">
+                    <conditions>
+                        <condition id="1" name="Is overlapping another object" sid="1967553320113816" type="Blinman">
+                            <param id="0" name="Object">LePotato</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-11" name="Add to" sid="6825794233628464" type="LePotato">
+                            <param id="0" name="Instance variable">HP</param>
+                            <param id="1" name="Value">-5</param>
+                        </action>
+                        <action behavior="ScrollTo" id="0" name="Shake" sid="4279433437052678" type="LePotato">
+                            <param id="0" name="Magnitude">1000</param>
+                            <param id="1" name="Duration">0.4</param>
+                            <param id="2" name="Mode">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="1586611095480857">
+            <conditions>
+                <condition id="0" name="On click" sid="6845721091090114" type="Mouse">
+                    <param id="0" name="Mouse button">0</param>
+                    <param id="1" name="Click type">0</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="8931420467600121">
+                    <conditions>
+                        <condition id="1" name="Is overlapping another object" sid="1512945885107521" type="LePotato">
+                            <param id="0" name="Object">Blinman</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-11" name="Add to" sid="3652753556092218" type="Blinman">
+                            <param id="0" name="Instance variable">HP</param>
+                            <param id="1" name="Value">-5</param>
+                        </action>
+                        <action id="-27" name="Set effect enabled" sid="9696992669459757" type="Blinman">
+                            <param id="0" name="Mode">0</param>
+                            <param id="1" name="Effect">&quot;Lens&quot;</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="731278676645912" type="System">
+                            <param id="0" name="Seconds">1.0</param>
+                        </action>
+                        <action id="-27" name="Set effect enabled" sid="9136149768221789" type="Blinman">
+                            <param id="0" name="Mode">1</param>
+                            <param id="1" name="Effect">&quot;Lens&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+    </events>
 </c2eventsheet>
